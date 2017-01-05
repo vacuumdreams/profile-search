@@ -1,0 +1,43 @@
+{
+  "name": "bpbp-client",
+  "version": "0.1.0",
+  "description": "Client for Prezi test project",
+  "main": "index.js",
+  "engines": {
+    "node": "^6.4.0"
+  },
+  "author": "Botond Fekete",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.23.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-watch": "^2.0.5",
+    "chai": "^3.5.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.26.0",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.1.1",
+    "postcss-loader": "^1.2.1",
+    "sass-loader": "^4.1.1",
+    "sinon": "^1.17.7",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

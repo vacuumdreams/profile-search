@@ -1,0 +1,21 @@
+{
+  "name": "bpbp-api",
+  "version": "0.1.0",
+  "description": "API for Prezi test project",
+  "main": "index.js",
+  "engines": {
+    "node": "^6.4.0"
+  },
+  "author": "Botond Fekete",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.23.0",
+    "restify": "^4.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.12.2",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7"
+  }
+}
