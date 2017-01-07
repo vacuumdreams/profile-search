@@ -1,4 +1,5 @@
 import {Config} from './_interface'
+export {Config} from './_interface'
 
 export const config: Config = {
   server: {

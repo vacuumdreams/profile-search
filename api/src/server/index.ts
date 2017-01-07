@@ -1,18 +1,21 @@
 import {compose, curry, map, tap} from 'ramda'
 import {createServer as restify} from 'restify'
-import {adapterRestify as adapter} from './adapters/restify'
+
+import {adapter} from './adapters'
 import {middlewares} from './middlewares'
 import {routes} from './routes'
 
 import {Server} from './_interface.d'
 
-const useMiddlewares = curry((config, server) => 
+const useMiddlewares = curry((config, middlewares, server) => 
   compose(server.use, middlewares(config))
 )
 
-const addRoutes = server => {
+const addRoutes = curry((routes, server) => {
   console.log(routes)
-}
+
+  //map(map(useMethod(server)), keys(routes))
+})
 
 // const start = compose(
 //   flip(call)(),
@@ -22,7 +25,7 @@ const addRoutes = server => {
 export const server: Server = config => 
   compose(
     // start,
-    tap(addRoutes),
-    tap(useMiddlewares(config)),
+    tap(addRoutes(routes)),
+    tap(useMiddlewares(config, middlewares)),
     adapter(restify)
   )(config)

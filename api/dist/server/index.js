@@ -1,18 +1,19 @@
 "use strict";
 const ramda_1 = require("ramda");
 const restify_1 = require("restify");
-const restify_2 = require("./adapters/restify");
+const adapters_1 = require("./adapters");
 const middlewares_1 = require("./middlewares");
 const routes_1 = require("./routes");
-const useMiddlewares = ramda_1.curry((config, server) => ramda_1.compose(server.use, middlewares_1.middlewares(config)));
-const addRoutes = server => {
-    console.log(routes_1.routes);
-};
+const useMiddlewares = ramda_1.curry((config, middlewares, server) => ramda_1.compose(server.use, middlewares(config)));
+const addRoutes = ramda_1.curry((routes, server) => {
+    console.log(routes);
+    //map(map(useMethod(server)), keys(routes))
+});
 // const start = compose(
 //   flip(call)(),
 //   path(['start'])
 // )
 exports.server = config => ramda_1.compose(
 // start,
-ramda_1.tap(addRoutes), ramda_1.tap(useMiddlewares(config)), restify_2.adapterRestify(restify_1.createServer))(config);
+ramda_1.tap(addRoutes(routes_1.routes)), ramda_1.tap(useMiddlewares(config, middlewares_1.middlewares)), adapters_1.adapter(restify_1.createServer))(config);
 //# sourceMappingURL=index.js.map
