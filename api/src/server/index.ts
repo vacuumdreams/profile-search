@@ -1,4 +1,4 @@
-import {compose, converge, curry, flip, map, keys, prop, tap} from 'ramda'
+import {call, compose, flip, prop, tap} from 'ramda'
 import {createServer as restify} from 'restify'
 
 import {adapter} from './adapters'
@@ -8,9 +8,14 @@ import {addRoutes, routes} from './routes'
 import {Config} from '../config'
 import {Server} from './_interface.d'
 
+const start = (msg: string) => compose(
+  flip(call)(msg),
+  prop('start')
+)
+
 export const api: Server = config => 
   compose(
-    tap(server => {server.start()}),
+    tap(start('Server listening')),
     tap(addRoutes(routes)),
     tap(addMiddlewares(config, middlewares)),
     adapter(restify)

@@ -9,7 +9,7 @@ const select = name => ramda_1.converge(ramda_1.bind, [
 const expose = config => ramda_1.applySpec({
     get: select('get'),
     use: select('use'),
-    start: (server) => () => select('listen')(server)(getPort(config), () => console.log('server listening')),
+    start: (server) => (msg) => select('listen')(server)(getPort(config), () => console.log(msg)),
 });
 exports.adapterRestify = server => config => ramda_1.compose(expose(config), server, ramda_1.prop('server'))(config);
 //# sourceMappingURL=index.js.map

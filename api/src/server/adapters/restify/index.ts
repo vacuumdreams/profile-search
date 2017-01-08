@@ -30,8 +30,8 @@ const select: (name: string) => Function = name => converge(
 const expose: (config: Config) => (server: Restify) => AdapterObjectRestify = config => applySpec({
   get: select('get'),
   use: select('use'),
-  start: (server: Restify) => () => 
-    select('listen')(server)(getPort(config), () => console.log('server listening')),
+  start: (server: Restify) => (msg: string) => 
+    select('listen')(server)(getPort(config), () => console.log(msg)),
 })
 
 
