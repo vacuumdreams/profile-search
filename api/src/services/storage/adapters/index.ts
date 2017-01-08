@@ -1,1 +1,9 @@
-export {StorageJson as Storage} from './json'
+export {
+  jsonAdapter,
+  StorageOptionsJson
+} from './json'
+
+export {
+  redisAdapter,
+  StorageOptionsRedis
+} from './redis'
