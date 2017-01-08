@@ -15,9 +15,7 @@ interface Restify extends Initializer {
   (options?: ServerOptions): Server,
 }
 
-interface RouteHandlerRestify extends RouteHandler {
-  (err: undefined | Error, req: Request, res: Response): void,
-}
+interface RouteHandlerRestify extends RouteHandler, RequestHandler {}
 
 interface MiddlewareRestify extends Middleware, RequestHandler {}
 

@@ -10,7 +10,7 @@ export interface Initializer {
 }
 
 export interface RouteHandler {
-  (err: undefined | Error, req: Object, res: Object): void
+  (req: Object, res: Object, next?: Function): void
 }
 
 export interface Middleware {
