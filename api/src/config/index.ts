@@ -1,9 +1,20 @@
 import {Config} from './_interface'
 export {Config} from './_interface'
 
+const dataPath: string = require('path').resolve('./data/prezis.json')
+
 export const config: Config = {
   server: {
     name: 'bpbp-api',
     url: 'http://localhost:8000'
+  },
+  storage: {
+    json: {
+      data: dataPath
+    },
+    redis: {
+      host: "127.0.0.1",
+      port: 6379
+    }
   }
 }

@@ -1,5 +1,5 @@
 export interface Storage {
   get?: Function, 
-  store?: Function,
+  set?: Function,
   del?: Function
 }

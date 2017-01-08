@@ -1,5 +1,4 @@
-import {always, applySpec, bind, call, compose, converge, flip, 
-  identity, last, once, path, prop, split, tap} from "ramda"
+import {always, applySpec, bind, compose, converge, identity, last, path, prop, split} from "ramda"
 import {Config} from '../../../config'
 import {AdapterRestify, AdapterObjectRestify, Restify} from './_interface.d'
 export {
@@ -31,7 +30,7 @@ const expose: (config: Config) => (server: Restify) => AdapterObjectRestify = co
   get: select('get'),
   use: select('use'),
   start: (server: Restify) => (msg: string) => 
-    select('listen')(server)(getPort(config), () => console.log(msg)),
+    select('listen')(server)(getPort(config), always(console.log(msg))),
 })
 
 
