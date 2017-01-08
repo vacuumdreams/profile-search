@@ -1,23 +1,24 @@
-import {applySpec, compose, curry, path, pick} from "ramda"
-import {AdapterRestify, AdapterObjectRestify} from './_interface.d'
+import {applySpec, bind, compose, curry, flip, prop} from "ramda"
+import {AdapterRestify, AdapterObjectRestify, Restify} from './_interface.d'
 export {
   AdapterRestify,
+  AdapterObjectRestify,
   MiddlewareRestify,
   Restify,
-  RouteRestify,
   RouteHandlerRestify,
-  RouteInjectRestify
 } from './_interface.d'
 
-const createAdapter: (server: any) => AdapterObjectRestify = applySpec({
-  get: path(['get']),
-  use: path(['use']),
-  start: compose(path(['listen'])),
+const select = (name: string) => compose(flip(bind), prop(name))
+
+const expose: (server: Restify) => AdapterObjectRestify = applySpec({
+  get: select('get'),
+  use: select('use'),
+  start: select('listen'),
 })
 
 export const adapterRestify: AdapterRestify = server => 
   compose(
-    createAdapter,
+    expose,
     server,
-    pick(['server'])
+    prop('server')
   )

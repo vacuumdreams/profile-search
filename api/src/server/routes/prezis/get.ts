@@ -1,6 +1,6 @@
-import {RouteHandler} from '../../adapters'
+import {RouteMethod} from '../'
 
-export const get: (services: any) => RouteHandler = ({storage}) => {
+export const get: RouteMethod = ([storage]) => {
   console.log(storage)
 
   return (err, req, res) => {

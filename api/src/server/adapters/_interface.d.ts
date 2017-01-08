@@ -1,6 +1,6 @@
 import {Config} from '../../config'
 
-export interface ServerInstance {
+export interface Initializer {
   (options: Object): any
 }
 
@@ -12,23 +12,12 @@ export interface Middleware {
   (req: Object, res: Object, next: Function): void
 }
 
-export interface Route {
-  get?: (services: any) => (path: string, RouteHandler) => void;
-  post?: (services: any) => (path: string, RouteHandler) => void;
-  put?: (services: any) => (path: string, RouteHandler) => void;
-  del?: (services: any) => (path: string, RouteHandler) => void;
-}
-
-export interface RouteInject {
-  (services: any): Route
-}
-
 export interface AdapterObject {
   get?: (path: string, RouteHandler) => void;
   post?: (path: string, RouteHandler) => void;
   put?: (path: string, RouteHandler) => void;
   del?: (path: string, RouteHandler) => void;
-  use?: Middleware;
+  use?: Middleware | Middleware[];
   start?: (...args: any[]) => void;
 }
 

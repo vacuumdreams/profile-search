@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/server/middlewares/index.ts"],"names":[],"mappings":";AAAA,qCAAwC;AAI3B,QAAA,WAAW,GAAgB,MAAM,IAAI,CAAC;IACjD,GAAG,oBAAU,EAAE;IACf,cAAI,CAAC,EAAE,OAAO,EAAE,EAAI,EAAE,CAAC;CACxB,CAAC,CAAA"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/server/middlewares/index.ts"],"names":[],"mappings":";AAAA,qCAAwC;AAI3B,QAAA,WAAW,GAAgB,MAAM,IAAI,CAAC;IACjD,GAAG,oBAAU,EAAE;IACf,cAAI,CAAC,EAAE,OAAO,EAAE,EAAI,EAAE,CAAC;CACxB,CAAC,CAAA;AAEF,6BAAoC;AAA5B,+BAAA,cAAc,CAAA"}

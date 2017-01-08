@@ -3,42 +3,37 @@ import {Config} from '../../../config/_interface.d'
 import {
   Adapter,
   AdapterObject,
+  Initializer,
   Middleware,
-  Route,
   RouteHandler,
-  RouteInject,
-  ServerInstance,
 } from '../_interface'
 
-export interface Restify extends ServerInstance {
+interface Restify extends Initializer {
   (options: ServerOptions): Server,
 }
 
-export interface RouteHandlerRestify extends RouteHandler {
+interface RouteHandlerRestify extends RouteHandler {
   (err: undefined | Error, req: Request, res: Response): void,
 }
 
-export interface AdapterObjectRestify extends AdapterObject {
+interface MiddlewareRestify extends Middleware, RequestHandler {}
+
+interface AdapterObjectRestify extends AdapterObject {
   get?: (path: string, RouteHandlerRestify) => void,
   post?: (path: string, RouteHandlerRestify) => void,
   put?: (path: string, RouteHandlerRestify) => void,
   del?: (path: string, RouteHandlerRestify) => void,
-  use?: RequestHandler,
+  use?: MiddlewareRestify | MiddlewareRestify[],
 }
 
-export interface RouteRestify extends Route {
-  get?: (services: any) => (path: string, RouteHandlerRestify) => void,
-  post?: (services: any) => (path: string, RouteHandlerRestify) => void,
-  put?: (services: any) => (path: string, RouteHandlerRestify) => void,
-  del?: (services: any) => (path: string, RouteHandlerRestify) => void,
-}
-
-export interface AdapterRestify extends Adapter {
+interface AdapterRestify extends Adapter {
   (initializer: Restify): (config: Config) => AdapterObjectRestify,
 }
 
-export interface MiddlewareRestify extends Middleware, RequestHandler {}
-
-export interface RouteInjectRestify extends RouteInject {
-  (services: any): RouteRestify
+export {
+  AdapterRestify,
+  AdapterObjectRestify,
+  MiddlewareRestify,
+  Restify,
+  RouteHandlerRestify,
 }

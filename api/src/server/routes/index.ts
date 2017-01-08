@@ -1,7 +1,22 @@
 import {applySpec} from 'ramda'
-import {prezis} from './prezis'
-// import {storage} from '../../services'
+import {create} from './create'
 
-export const routes = {
-  prezis: prezis({storage: '__storage placeholder'})
-}
+import {prezis} from './prezis'
+
+import {RouteSpecObject} from './_interface.d'
+export {
+  RouteHandlers,
+  RouteHandlersObject,
+  RouteMethod,
+  RouteSpec,
+  RouteSpecObject
+} from './_interface.d'
+
+// import {storage} from '../../services'
+const storage = {name: 'storage'}
+
+export const routes: RouteSpecObject[] = [
+  create('/prezis', prezis)([storage]),
+]
+
+export {addRoutes} from './add'

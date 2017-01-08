@@ -1,9 +1,8 @@
 export {
   adapterRestify as adapter,
-  Restify as Server,
+  Restify as Initializer,
   AdapterRestify as Adapter,
+  AdapterObjectRestify as AdapterObject,
   MiddlewareRestify as Middleware,
-  RouteRestify as Route,
   RouteHandlerRestify as RouteHandler,
-  RouteInjectRestify as RouteInject,
 } from './restify'

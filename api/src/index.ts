@@ -1,4 +1,4 @@
 import {config} from './config'
-import {server} from './server'
+import {api} from './server'
 
-server(config)
+api(config)
