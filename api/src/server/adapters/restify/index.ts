@@ -1,4 +1,6 @@
-import {applySpec, bind, compose, curry, flip, prop} from "ramda"
+import {always, applySpec, bind, call, compose, converge, flip, 
+  identity, last, once, path, prop, split, tap} from "ramda"
+import {Config} from '../../../config'
 import {AdapterRestify, AdapterObjectRestify, Restify} from './_interface.d'
 export {
   AdapterRestify,
@@ -6,19 +8,36 @@ export {
   MiddlewareRestify,
   Restify,
   RouteHandlerRestify,
+  ApiOptionsRestify,
 } from './_interface.d'
 
-const select = (name: string) => compose(flip(bind), prop(name))
+const extractPort: (url: string[]) => string = last
 
-const expose: (server: Restify) => AdapterObjectRestify = applySpec({
+const getPort: (config: Config) => number = compose(
+  parseInt,
+  extractPort,
+  split(':'),
+  path(['server', 'url'])
+)
+
+const select: (name: string) => Function = name => converge(
+  bind, [
+    prop(name),
+    identity
+  ]
+)
+
+const expose: (config: Config) => (server: Restify) => AdapterObjectRestify = config => applySpec({
   get: select('get'),
   use: select('use'),
-  start: select('listen'),
+  start: (server: Restify) => () => 
+    select('listen')(server)(getPort(config), () => console.log('server listening')),
 })
 
-export const adapterRestify: AdapterRestify = server => 
-  compose(
-    expose,
-    server,
-    prop('server')
-  )
+
+export const adapterRestify: AdapterRestify = server => config => compose(
+  expose(config),
+  server,
+  prop('server')
+)(config)
+

@@ -16,7 +16,7 @@ export {
 const storage = {name: 'storage'}
 
 export const routes: RouteSpecObject[] = [
-  create('/prezis', prezis)([storage]),
+  create('prezis', prezis)([storage]),
 ]
 
 export {addRoutes} from './add'

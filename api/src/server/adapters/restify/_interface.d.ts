@@ -1,15 +1,18 @@
 import {Request, Response, RequestHandler, Server, ServerOptions} from 'restify'
-import {Config} from '../../../config/_interface.d'
+import {Config} from '../../../config'
 import {
   Adapter,
   AdapterObject,
   Initializer,
   Middleware,
   RouteHandler,
+  ApiOptions,
 } from '../_interface'
 
+interface ApiOptionsRestify extends ApiOptions, ServerOptions {}
+
 interface Restify extends Initializer {
-  (options: ServerOptions): Server,
+  (options?: ServerOptions): Server,
 }
 
 interface RouteHandlerRestify extends RouteHandler {
@@ -36,4 +39,5 @@ export {
   MiddlewareRestify,
   Restify,
   RouteHandlerRestify,
+  ApiOptionsRestify,
 }

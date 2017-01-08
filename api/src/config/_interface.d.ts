@@ -1,5 +1,5 @@
-import {ServerOptions} from 'restify'
+import {ApiOptions} from '../server/adapters'
 
 export interface Config {
-  server: ServerOptions
+  server: ApiOptions
 }

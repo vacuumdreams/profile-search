@@ -10,7 +10,7 @@ import {Server} from './_interface.d'
 
 export const api: Server = config => 
   compose(
-    // start,
+    tap(server => {server.start()}),
     tap(addRoutes(routes)),
     tap(addMiddlewares(config, middlewares)),
     adapter(restify)

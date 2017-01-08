@@ -5,4 +5,5 @@ export {
   AdapterObjectRestify as AdapterObject,
   MiddlewareRestify as Middleware,
   RouteHandlerRestify as RouteHandler,
+  ApiOptionsRestify as ApiOptions,
 } from './restify'

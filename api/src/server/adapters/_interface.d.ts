@@ -1,7 +1,12 @@
 import {Config} from '../../config'
 
+export interface ApiOptions {
+  name?: string,
+  url?: string,
+}
+
 export interface Initializer {
-  (options: Object): any
+  (options?: Object): any
 }
 
 export interface RouteHandler {

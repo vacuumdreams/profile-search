@@ -1,10 +1,15 @@
 "use strict";
 const ramda_1 = require("ramda");
-const select = (name) => ramda_1.compose(ramda_1.flip(ramda_1.bind), ramda_1.prop(name));
-const expose = ramda_1.applySpec({
+const extractPort = ramda_1.last;
+const getPort = ramda_1.compose(parseInt, extractPort, ramda_1.split(':'), ramda_1.path(['server', 'url']));
+const select = name => ramda_1.converge(ramda_1.bind, [
+    ramda_1.prop(name),
+    ramda_1.identity
+]);
+const expose = config => ramda_1.applySpec({
     get: select('get'),
     use: select('use'),
-    start: select('listen'),
+    start: (server) => () => select('listen')(server)(getPort(config), () => console.log('server listening')),
 });
-exports.adapterRestify = server => ramda_1.compose(expose, server, ramda_1.prop('server'));
+exports.adapterRestify = server => config => ramda_1.compose(expose(config), server, ramda_1.prop('server'))(config);
 //# sourceMappingURL=index.js.map
