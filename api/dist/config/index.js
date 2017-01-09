@@ -1,5 +1,6 @@
 "use strict";
-const dataPath = require('path').resolve('./data/prezis.json');
+const path = require("path");
+const dataPath = path.resolve('./data/prezis.json');
 exports.config = {
     server: {
         name: 'bpbp-api',

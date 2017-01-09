@@ -8,7 +8,7 @@ bluebird_1.promisify(redis.RedisClient.prototype.get);
 const fsAsync = {
     readFile: bluebird_1.promisify(fs.readFile)
 };
-exports.storage = ramda_1.applySpec({
+exports.storages = ramda_1.applySpec({
     json: ramda_1.compose(adapters_1.jsonAdapter(fsAsync), ramda_1.path(['storage', 'json'])),
     redis: ramda_1.compose(adapters_1.redisAdapter(redis.createClient), ramda_1.path(['storage', 'redis']))
 });

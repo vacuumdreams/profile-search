@@ -1,7 +1,9 @@
+import {Config} from '../../config'
 import {RouteHandler} from '../adapters'
+import {Services} from '../../services'
 
 export interface RouteMethod {
-  (services: Object[]): RouteHandler
+  (services: Services): RouteHandler
 }
 
 export interface RouteHandlersObject {
@@ -12,7 +14,7 @@ export interface RouteHandlersObject {
 }
 
 export interface RouteHandlers {
-  (services: Object[]): RouteHandlersObject
+  (services: Services): RouteHandlersObject
 }
 
 export interface RouteSpecObject {
@@ -21,5 +23,9 @@ export interface RouteSpecObject {
 }
 
 export interface RouteSpec {
-  (path: string, handlers: RouteHandlers): (services: Object[]) => RouteSpecObject
+  (path: string, handlers: RouteHandlers): (services: Services) => RouteSpecObject
+}
+
+export interface Routes {
+  (config: Config): RouteSpecObject[]
 }

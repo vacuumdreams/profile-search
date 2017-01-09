@@ -1,5 +1,5 @@
 import {ApiOptions} from '../server/adapters'
-import {StorageOptionsJson, StorageOptionsRedis} from '../services/storage'
+import {StorageOptionsJson, StorageOptionsRedis} from '../services/storages'
 
 export interface Config {
   server: ApiOptions,

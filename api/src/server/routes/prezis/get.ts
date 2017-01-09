@@ -1,8 +1,10 @@
+import * as fs from 'fs'
+import * as path from 'path'
+import {curry} from 'ramda'
 import {RouteMethod} from '../'
-const fs = require('fs')
-const path = require('path')
 
-export const get: RouteMethod = ([storage]) => {
+export const get: RouteMethod = ({storages}) => {
+
   //console.log(storage)
 
   return (req, res) => {

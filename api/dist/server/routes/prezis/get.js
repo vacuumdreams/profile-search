@@ -1,7 +1,7 @@
 "use strict";
-const fs = require('fs');
-const path = require('path');
-exports.get = ([storage]) => {
+const fs = require("fs");
+const path = require("path");
+exports.get = ({ storages }) => {
     //console.log(storage)
     return (req, res) => {
         console.log('/prezis GET handler');

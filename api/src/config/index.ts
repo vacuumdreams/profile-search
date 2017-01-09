@@ -1,7 +1,9 @@
+import * as path from 'path'
+
 import {Config} from './_interface'
 export {Config} from './_interface'
 
-const dataPath: string = require('path').resolve('./data/prezis.json')
+const dataPath: string = path.resolve('./data/prezis.json')
 
 export const config: Config = {
   server: {

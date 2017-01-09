@@ -1,10 +1,11 @@
-import {applySpec} from 'ramda'
+import {applySpec, compose, converge} from 'ramda'
 import {create} from './create'
 
 import {prezis} from './prezis'
 
-import {RouteSpecObject} from './_interface.d'
+import {Routes, RouteSpec, RouteSpecObject, RouteHandlers} from './_interface.d'
 export {
+  Routes,
   RouteHandlers,
   RouteHandlersObject,
   RouteMethod,
@@ -12,11 +13,16 @@ export {
   RouteSpecObject
 } from './_interface.d'
 
-// import {storage} from '../../services'
-const storage = {name: 'storage'}
+import {services} from '../../services'
+import {addServices} from './add'
 
-export const routes: RouteSpecObject[] = [
-  create('prezis', prezis)([storage]),
+const specs: RouteHandlers[] = [
+  create('prezis', prezis),
 ]
+
+export const routes: Routes = compose(
+  addServices(specs),
+  services
+)
 
 export {addRoutes} from './add'

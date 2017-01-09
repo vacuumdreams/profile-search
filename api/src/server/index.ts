@@ -16,7 +16,7 @@ const start = (msg: string) => compose(
 export const api: Server = config => 
   compose(
     tap(start('Server listening')),
-    tap(addRoutes(routes)),
+    tap(addRoutes(config, routes)),
     tap(addMiddlewares(config, middlewares)),
     adapter(restify)
   )(config)
