@@ -1,5 +1,5 @@
 "use strict";
 const ramda_1 = require("ramda");
-const storages_1 = require("./storages");
-exports.services = ramda_1.applySpec({ storages: storages_1.storages });
+const storage_1 = require("./storage");
+exports.services = ramda_1.applySpec({ storage: storage_1.storage });
 //# sourceMappingURL=index.js.map

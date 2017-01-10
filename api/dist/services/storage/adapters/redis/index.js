@@ -1,9 +1,17 @@
 "use strict";
-const ramda_1 = require("ramda");
 exports.redisAdapter = redis => config => {
-    return {};
-    return ramda_1.compose(ramda_1.applySpec({
-        get: redis.getAsync,
-    }), redis)(config);
+    const storage = {
+        name: 'redis',
+        type: 'storage',
+        store: {}
+    };
+    return storage;
+    // return compose(
+    //   // applySpec({
+    //   //   get: prop('getAsync'),
+    //   // }),
+    //   tap(console.log.bind(console)),
+    //   redis
+    // )(config)
 };
 //# sourceMappingURL=index.js.map

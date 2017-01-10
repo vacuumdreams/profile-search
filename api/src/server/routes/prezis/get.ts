@@ -1,15 +1,15 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import {curry} from 'ramda'
+const path = require('ramda').path
+import {Promise} from 'bluebird'
 import {RouteMethod} from '../'
 
-export const get: RouteMethod = ({storages}) => {
+import {successHandler, errorHandler} from '../../../lib/util'
 
-  //console.log(storage)
+export const get: RouteMethod = services => {
 
-  return (req, res) => {
-    console.log('/prezis GET handler')
-    const data = fs.readFileSync(path.resolve('../api/data/prezis.json'), 'utf8')
-    res.send(200, JSON.parse(data))
-  }
+  const getData: (path: string) => Promise = path(['storage', 'store', 'get'])(services)
+
+  return (req, res) =>
+    getData('prezis')
+      .then(successHandler(res))
+      .catch(errorHandler(res))
 }

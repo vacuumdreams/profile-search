@@ -1,6 +1,6 @@
 import {compose, curry} from 'ramda'
 import {AddMiddlewares} from './'
 
-export const addMiddlewares: AddMiddlewares = curry((config, middlewares, {use}) => 
-  compose(use, middlewares)(config)
+export const addMiddlewares: AddMiddlewares = curry((config, middlewares, adapter) => 
+  compose(adapter.use, middlewares)(config)
 )

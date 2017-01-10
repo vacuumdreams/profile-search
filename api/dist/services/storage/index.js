@@ -1,15 +1,17 @@
 "use strict";
+const converge = require('ramda').converge;
 const fs = require("fs");
-const redis = require("redis");
+//import * as redis from 'redis'
 const bluebird_1 = require("bluebird");
 const ramda_1 = require("ramda");
 const adapters_1 = require("./adapters");
-bluebird_1.promisify(redis.RedisClient.prototype.get);
+//promisifyAll(redis.RedisClient.prototype)
 const fsAsync = {
     readFile: bluebird_1.promisify(fs.readFile)
 };
-exports.storage = ramda_1.applySpec({
-    json: ramda_1.compose(adapters_1.jsonAdapter(fsAsync), ramda_1.path(['storage', 'json'])),
-    redis: ramda_1.compose(adapters_1.redisAdapter(redis.createClient), ramda_1.path(['storage', 'redis']))
-});
+// export const storage: (config: Config) => StorageSpec = compose(
+//   redisAdapter(redis.createClient),
+//   path(['storage', 'redis'])
+// )
+exports.storage = ramda_1.compose(adapters_1.adapter(fsAsync), ramda_1.path(['storage', 'json']));
 //# sourceMappingURL=index.js.map

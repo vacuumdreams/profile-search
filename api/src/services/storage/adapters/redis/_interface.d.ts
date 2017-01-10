@@ -12,10 +12,12 @@ interface CreateClient {
   (port: number, host: string, opt?: any): RedisClient
 }
 
-export interface StorageSetupRedis extends StorageSetup {
-  (redis: CreateClient): (config: StorageOptionsRedis) => StorageRedis
+export interface StorageSpecRedis extends StorageSpec {
+  name: 'redis',
+  type: 'storage',
+  store: StorageRedis
 }
 
-export interface StorageSpecRedis extends StorageSpec {
-  store: StorageRedis
+export interface StorageSetupRedis extends StorageSetup {
+  (redis: CreateClient): (config: StorageOptionsRedis) => StorageSpecRedis
 }

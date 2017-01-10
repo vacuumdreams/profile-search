@@ -1,4 +1,4 @@
-import {StorageSpec} from './storages/adapters/_interface.d'
+import {StorageSpec} from './storage/adapters/_interface.d'
 
 export interface Service {
   name: string,
@@ -6,5 +6,5 @@ export interface Service {
 }
 
 export interface Services {
-  storages?: StorageSpec[]
+  storage?: Service
 }

@@ -12,11 +12,11 @@ const middlewares = () => (['mock-1', 'mock-2']);
 const adapter = {
     use: sinon.spy(),
 };
-describe('Server Middleware', function () {
+describe('Server Middlewares', function () {
     after(function () {
         adapter.use.reset();
     });
-    describe('Adding middlewares', function () {
+    describe('Adding handlers', function () {
         _1.addMiddlewares(config, middlewares, adapter);
         it('should call the adapter\'s use after configuring the middlewares', function () {
             expect(adapter.use.callCount).to.equal(1);

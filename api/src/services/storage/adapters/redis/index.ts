@@ -1,5 +1,5 @@
 import {applySpec, compose, prop, tap} from 'ramda'
-import {StorageSetupRedis} from './_interface.d'
+import {StorageSpecRedis, StorageSetupRedis} from './_interface.d'
 export {
   StorageRedis,
   StorageOptionsRedis,
@@ -7,8 +7,13 @@ export {
 } from './_interface.d'
 
 export const redisAdapter: StorageSetupRedis = redis => config => {
+  const storage: StorageSpecRedis = {
+    name: 'redis',
+    type: 'storage',
+    store: { }
+  }
+  return storage
 
-  return {}
   // return compose(
   //   // applySpec({
   //   //   get: prop('getAsync'),

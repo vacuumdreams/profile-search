@@ -15,7 +15,7 @@ const restify = {
     listen: sinon.spy(),
 };
 const createServer = sinon.stub().returns(restify);
-describe('Server Adapter - Restify.', function () {
+describe('Server Adapter - Restify', function () {
     let adapter;
     describe('Initializing the adapter', function () {
         adapter = _1.adapterRestify(createServer)(config);
