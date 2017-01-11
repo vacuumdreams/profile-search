@@ -9,7 +9,7 @@ export interface Storage {
 }
 
 export interface StorageSetup {
-  (store?: any): (config: Config) => Storage
+  (store?: any): (config: Config) => StorageSpec
 }
 
 export interface StorageSpec extends Service {

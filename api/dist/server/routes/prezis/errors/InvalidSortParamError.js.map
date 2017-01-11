@@ -1,0 +1,1 @@
+{"version":3,"file":"InvalidSortParamError.js","sourceRoot":"","sources":["../../../../../src/server/routes/prezis/errors/InvalidSortParamError.ts"],"names":[],"mappings":";AAAA,+CAA4C;AAE5C,2BAAmC,SAAQ,kBAAS;IAClD;QACE,KAAK,EAAE,CAAA;QACP,IAAI,CAAC,IAAI,GAAG,GAAG,CAAA;QACf,IAAI,CAAC,GAAG,GAAG,sCAAsC,CAAA;IACnD,CAAC;CACF;AAND,sDAMC"}

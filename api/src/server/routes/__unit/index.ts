@@ -1,10 +1,11 @@
 'use strict'
-import * as chai from 'chai'
+import {expect} from 'chai'
+import {afterEach, describe, it} from 'mocha'
 const sinon = require('sinon')
-const expect = chai.expect
 
-import {addRoutes, addServices} from '../add'
-import {create} from '../create'
+const addRoutes = require('../add').addRoutes
+const addServices = require('../add').addServices
+const create = require('../create').create
 
 const services = [
   {
@@ -22,8 +23,8 @@ const services = [
 describe('Server Routes', function () {
 
   afterEach(function () {
-    services[0].doStuff1.reset()
-    services[1].doStuff2.reset()
+    services[0]['doStuff1'].reset()
+    services[1]['doStuff2'].reset()
   })
 
   describe('Route spec creation', function () {
@@ -36,11 +37,11 @@ describe('Server Routes', function () {
 
     it('should allow the use of services', function () {
       created.handlers.get('thing-1')
-      expect(services[0].doStuff1.callCount).to.equal(1)
-      expect(services[0].doStuff1.getCall(0).args[0]).to.equal('thing-1')
+      expect(services[0]['doStuff1'].callCount).to.equal(1)
+      expect(services[0]['doStuff1'].getCall(0).args[0]).to.equal('thing-1')
       created.handlers.post('thing-2')
-      expect(services[1].doStuff2.callCount).to.equal(1)
-      expect(services[1].doStuff2.getCall(0).args[0]).to.equal('thing-2')            
+      expect(services[1]['doStuff2'].callCount).to.equal(1)
+      expect(services[1]['doStuff2'].getCall(0).args[0]).to.equal('thing-2')            
     })
   })
 
@@ -65,14 +66,14 @@ describe('Server Routes', function () {
 
     it('makes the services available in the route handlers', function () {
       added[0].handlers.get('thing-1')
-      expect(services[0].doStuff1.callCount).to.equal(1)
-      expect(services[0].doStuff1.getCall(0).args[0]).to.equal('thing-1')
+      expect(services[0]['doStuff1'].callCount).to.equal(1)
+      expect(services[0]['doStuff1'].getCall(0).args[0]).to.equal('thing-1')
       added[0].handlers.post('thing-2')
-      expect(services[1].doStuff2.callCount).to.equal(1)
-      expect(services[1].doStuff2.getCall(0).args[0]).to.equal('thing-2')
+      expect(services[1]['doStuff2'].callCount).to.equal(1)
+      expect(services[1]['doStuff2'].getCall(0).args[0]).to.equal('thing-2')
       added[1].handlers.get('thing-3')
-      expect(services[0].doStuff1.callCount).to.equal(2)
-      expect(services[0].doStuff1.getCall(1).args[0]).to.equal('thing-3')
+      expect(services[0]['doStuff1'].callCount).to.equal(2)
+      expect(services[0]['doStuff1'].getCall(1).args[0]).to.equal('thing-3')
     })
   })
 

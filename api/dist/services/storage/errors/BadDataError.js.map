@@ -1,1 +1,1 @@
-{"version":3,"file":"BadDataError.js","sourceRoot":"","sources":["../../../../src/services/storage/errors/BadDataError.ts"],"names":[],"mappings":";AAAA,kBAA0B,SAAQ,KAAK;CAEtC;AAFD,oCAEC"}
+{"version":3,"file":"BadDataError.js","sourceRoot":"","sources":["../../../../src/services/storage/errors/BadDataError.ts"],"names":[],"mappings":";AAAA,4CAAyC;AAEzC,kBAA0B,SAAQ,kBAAS;IACzC;QACE,KAAK,EAAE,CAAA;QACP,IAAI,CAAC,IAAI,GAAG,GAAG,CAAA;QACf,IAAI,CAAC,GAAG,GAAG,wCAAwC,CAAA;IACrD,CAAC;CACF;AAND,oCAMC"}

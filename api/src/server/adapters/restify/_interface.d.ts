@@ -1,13 +1,22 @@
-import {Request, Response, RequestHandler, Server, ServerOptions} from 'restify'
+import {
+  RequestHandler,
+  Server,
+  ServerOptions
+} from 'restify'
 import {Config} from '../../../config'
 import {
   Adapter,
   AdapterObject,
   Initializer,
   Middleware,
+  Response,
+  Request,
   RouteHandler,
   ApiOptions,
 } from '../_interface'
+
+interface RequestRestify extends Request {}
+interface ResponseRestify extends Response {}
 
 interface ApiOptionsRestify extends ApiOptions, ServerOptions {}
 
@@ -15,9 +24,9 @@ interface Restify extends Initializer {
   (options?: ServerOptions): Server,
 }
 
-interface RouteHandlerRestify extends RouteHandler, RequestHandler {}
+interface RouteHandlerRestify extends RouteHandler {}
 
-interface MiddlewareRestify extends Middleware, RequestHandler {}
+interface MiddlewareRestify extends Middleware {}
 
 interface AdapterObjectRestify extends AdapterObject {
   get?: (path: string, RouteHandlerRestify) => void,
@@ -36,6 +45,8 @@ export {
   AdapterObjectRestify,
   MiddlewareRestify,
   Restify,
+  ResponseRestify,
+  RequestRestify,
   RouteHandlerRestify,
   ApiOptionsRestify,
 }

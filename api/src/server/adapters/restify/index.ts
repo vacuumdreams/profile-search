@@ -6,6 +6,8 @@ export {
   AdapterObjectRestify,
   MiddlewareRestify,
   Restify,
+  ResponseRestify,
+  RequestRestify,
   RouteHandlerRestify,
   ApiOptionsRestify,
 } from './_interface.d'

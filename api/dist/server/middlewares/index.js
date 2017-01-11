@@ -2,6 +2,7 @@
 const restify_1 = require("restify");
 exports.middlewares = config => ([
     ...restify_1.bodyParser(),
+    restify_1.queryParser(),
     restify_1.CORS({ origins: [] })
 ]);
 var add_1 = require("./add");

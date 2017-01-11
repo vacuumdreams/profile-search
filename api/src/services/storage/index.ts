@@ -6,7 +6,7 @@ import {compose, path} from 'ramda'
 
 import {Config} from '../../config'
 import {adapter} from './adapters'
-import {Storage, StorageSpec} from './adapters'
+import {Storage, StorageSetup, StorageSpec} from './adapters'
 
 export {
   Storage,
@@ -21,11 +21,11 @@ const fsAsync = {
 }
 
 // export const storage: (config: Config) => StorageSpec = compose(
-//   redisAdapter(redis.createClient),
+//   adapter(redis.createClient),
 //   path(['storage', 'redis'])
 // )
 
-export const storage: (config: Config) => StorageSpec = compose(
+export const storage: StorageSetup = compose(
   adapter(fsAsync),
   path(['storage', 'json'])
 )

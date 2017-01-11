@@ -10,7 +10,7 @@ const fsAsync = {
     readFile: bluebird_1.promisify(fs.readFile)
 };
 // export const storage: (config: Config) => StorageSpec = compose(
-//   redisAdapter(redis.createClient),
+//   adapter(redis.createClient),
 //   path(['storage', 'redis'])
 // )
 exports.storage = ramda_1.compose(adapters_1.adapter(fsAsync), ramda_1.path(['storage', 'json']));

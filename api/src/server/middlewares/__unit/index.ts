@@ -1,9 +1,9 @@
 'use strict'
-import * as chai from 'chai'
+import {expect} from 'chai'
+import {after, describe, it} from 'mocha'
 const sinon = require('sinon')
-const expect = chai.expect
 
-import {addMiddlewares} from '../'
+const addMiddlewares = require('../').addMiddlewares
 
 const config = {
   server: {

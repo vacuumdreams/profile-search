@@ -1,0 +1,1 @@
+{"version":3,"file":"InvalidQueryError.js","sourceRoot":"","sources":["../../../../../src/server/routes/prezis/errors/InvalidQueryError.ts"],"names":[],"mappings":";AAAA,+CAA4C;AAE5C,uBAA+B,SAAQ,kBAAS;IAC9C;QACE,KAAK,EAAE,CAAA;QACP,IAAI,CAAC,IAAI,GAAG,GAAG,CAAA;QACf,IAAI,CAAC,GAAG,GAAG,0BAA0B,CAAA;IACvC,CAAC;CACF;AAND,8CAMC"}

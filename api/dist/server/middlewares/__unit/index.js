@@ -1,8 +1,8 @@
 'use strict';
-const chai = require("chai");
+const chai_1 = require("chai");
+const mocha_1 = require("mocha");
 const sinon = require('sinon');
-const expect = chai.expect;
-const _1 = require("../");
+const addMiddlewares = require('../').addMiddlewares;
 const config = {
     server: {
         name: 'test',
@@ -12,16 +12,16 @@ const middlewares = () => (['mock-1', 'mock-2']);
 const adapter = {
     use: sinon.spy(),
 };
-describe('Server Middlewares', function () {
-    after(function () {
+mocha_1.describe('Server Middlewares', function () {
+    mocha_1.after(function () {
         adapter.use.reset();
     });
-    describe('Adding handlers', function () {
-        _1.addMiddlewares(config, middlewares, adapter);
-        it('should call the adapter\'s use after configuring the middlewares', function () {
-            expect(adapter.use.callCount).to.equal(1);
-            expect(adapter.use.firstCall.args.length).to.equal(1);
-            expect(adapter.use.firstCall.args[0]).to.deep.equal(['mock-1', 'mock-2']);
+    mocha_1.describe('Adding handlers', function () {
+        addMiddlewares(config, middlewares, adapter);
+        mocha_1.it('should call the adapter\'s use after configuring the middlewares', function () {
+            chai_1.expect(adapter.use.callCount).to.equal(1);
+            chai_1.expect(adapter.use.firstCall.args.length).to.equal(1);
+            chai_1.expect(adapter.use.firstCall.args[0]).to.deep.equal(['mock-1', 'mock-2']);
         });
     });
 });
