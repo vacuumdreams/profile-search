@@ -2,7 +2,7 @@
 const curry = require('ramda').curry;
 exports.toArg = index => (...rest) => rest[index];
 exports.toTimestamp = value => new Date(value).getTime();
-exports.alwaysThrow = ErrorConstructor => err => {
+exports.alwaysThrow = ErrorConstructor => () => {
     throw new ErrorConstructor();
 };
 exports.tryThrow = (fn, ErrorConstructor) => {

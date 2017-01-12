@@ -5,7 +5,7 @@ const intersectionWith = require('ramda').intersectionWith
 const path = require('ramda').path
 const reduce = require('ramda').reduce
 
-import {always, compose, eqBy, filter, ifElse, intersection, isEmpty, isNil, keys, not,
+import {always, compose, eqBy, filter, ifElse, intersection, isEmpty, isNil, keys, memoize, not,
   pick, prop, sort, subtract, test, values, when, without} from 'ramda'
 import {Promise} from 'bluebird'
 
@@ -25,19 +25,20 @@ const sortMap = {
 const matchTitle = term => compose(test(new RegExp(term)), prop('title'))
 
 const allowedQueryMap: (data: PreziData[]) => Object = data => ({
-  sort: compose(
+  search: memoize(compose(
+    flip(filter)(data),
+    matchTitle
+  )),
+  sort: memoize(compose(
     flip(sort)(data),
     when(isNil, alwaysThrow(InvalidSortParamError)),
     flip(prop)(sortMap)
-  ),
-  search: compose(
-    flip(filter)(data),
-    matchTitle
-  ),
+  )),
 })
 
 const allowedQueryKeys = keys(allowedQueryMap(null))
 
+// TODO: fix issue when both search and sort are applied, the result's not sorted
 const intersect: (acc: PreziData[]) => (results: PreziData[][]) => PreziData[] = 
   reduce(flip(intersectionWith(eqBy(prop('id')))))
 

@@ -7,7 +7,7 @@ export const toArg: (index: number) => (...rest: any[]) => any =
 
 export const toTimestamp: (value: string) => number = value => new Date(value).getTime()
 
-export const alwaysThrow = ErrorConstructor => err => {
+export const alwaysThrow = ErrorConstructor => () => {
   throw new ErrorConstructor()
 }
 

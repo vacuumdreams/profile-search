@@ -14,10 +14,11 @@ const sortMap = {
 };
 const matchTitle = term => ramda_1.compose(ramda_1.test(new RegExp(term)), ramda_1.prop('title'));
 const allowedQueryMap = data => ({
-    sort: ramda_1.compose(flip(ramda_1.sort)(data), ramda_1.when(ramda_1.isNil, util_1.alwaysThrow(errors_1.InvalidSortParamError)), flip(ramda_1.prop)(sortMap)),
-    search: ramda_1.compose(flip(ramda_1.filter)(data), matchTitle),
+    search: ramda_1.memoize(ramda_1.compose(flip(ramda_1.filter)(data), matchTitle)),
+    sort: ramda_1.memoize(ramda_1.compose(flip(ramda_1.sort)(data), ramda_1.when(ramda_1.isNil, util_1.alwaysThrow(errors_1.InvalidSortParamError)), flip(ramda_1.prop)(sortMap))),
 });
 const allowedQueryKeys = ramda_1.keys(allowedQueryMap(null));
+// TODO: fix issue when both search and sort are applied, the result's not sorted
 const intersect = reduce(flip(intersectionWith(ramda_1.eqBy(ramda_1.prop('id')))));
 const isInvalidQuery = ramda_1.compose(ramda_1.not, ramda_1.isEmpty, ramda_1.without(allowedQueryKeys), ramda_1.keys);
 const applyQueries = data => ramda_1.compose(intersect(data), ramda_1.values, evolve(allowedQueryMap(data)), ramda_1.pick(allowedQueryKeys), ramda_1.when(isInvalidQuery, util_1.alwaysThrow(errors_1.InvalidQueryError)));
