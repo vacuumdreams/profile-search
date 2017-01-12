@@ -1,18 +1,18 @@
-import {applySpec, compose, prop, tap} from 'ramda'
-import {StorageSpecRedis, StorageSetupRedis} from './_interface.d'
-export {
-  StorageRedis,
-  StorageOptionsRedis,
-  StorageSetupRedis,
-} from './_interface.d'
+// import {applySpec, compose, prop, tap} from 'ramda'
+// import {StorageSpecRedis, StorageSetupRedis} from './_interface.d'
+// export {
+//   StorageRedis,
+//   StorageOptionsRedis,
+//   StorageSetupRedis,
+// } from './_interface.d'
 
-export const redisAdapter: StorageSetupRedis = redis => config => {
-  const storage: StorageSpecRedis = {
-    name: 'redis',
-    type: 'storage',
-    store: { }
-  }
-  return storage
+// export const redisAdapter: StorageSetupRedis = redis => config => {
+//   const storage: StorageSpecRedis = {
+//     name: 'redis',
+//     type: 'storage',
+//     store: { }
+//   }
+//   return storage
 
   // return compose(
   //   // applySpec({
@@ -21,4 +21,4 @@ export const redisAdapter: StorageSetupRedis = redis => config => {
   //   tap(console.log.bind(console)),
   //   redis
   // )(config)
-}
+// }
