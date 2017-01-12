@@ -2,16 +2,19 @@ before_script:
   - apt-get update -qq && apt-get install -y -qq nodejs
 
 build_api:
-  - script:
-    - cd ./api && npm i
-    - ./node_modules/.bin/tsc
+  stage: build
+  cache: 
+    paths:
+      - ./api/node_modules
+  script:
+    - cd ./api && npm i && ./node_modules/.bin/tsc
 
 test_unit_api:
-  - script:
-    - cd ./api
-    - ./node_modules/.bin/mocha dist/**/__unit/*
+  stage: test
+  script:
+    - ./api/node_modules/.bin/mocha dist/**/__unit/*
 
 test_integration_api:
-  - script:
-    - cd ./api
-    - ./node_modules/.bin/mocha dist/**/__integration/*
+  stage: test
+  script:
+    - ./api/node_modules/.bin/mocha dist/**/__integration/*
