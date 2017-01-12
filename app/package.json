@@ -4,7 +4,7 @@
   "description": "Client for Prezi test project",
   "main": "index.js",
   "engines": {
-    "node": "^6.4.0"
+    "node": "^6.9.0"
   },
   "author": "Botond Fekete",
   "license": "MIT",

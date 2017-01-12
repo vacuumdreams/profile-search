@@ -1,0 +1,20 @@
+{
+  "name": "bpbp",
+  "version": "0.1.0",
+  "description": "Prezi test project",
+  "main": "api/dist/index.js",
+  "engines": {
+    "node": "^6.9.0"
+  },
+  "scripts": {
+    "build-api": "cd api && npm i && ./node_modules/.bin/tsc",
+    "lint-api": "cd api && ./node_modules/.bin/eslint --config .eslintrc src/**/*.js --fix",
+    "test-unit-api": "cd api && ./node_modules/.bin/mocha dist/**/__unit/*.js",
+    "test-integration-api": "cd api && ./node_modules/.bin/mocha dist/**/__integration/*.js",
+    "start-api": "cd api && node dist/index.js",
+    "dev-build-api": "cd api && ./node_modules/.bin/tsc --watch",
+    "dev-api": "cd api && NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js dist/index.js"
+  },
+  "author": "Botond Fekete",
+  "license": "MIT",
+}

@@ -4,7 +4,7 @@
   "description": "API for Prezi test project",
   "main": "dist/index.js",
   "engines": {
-    "node": "^6.4.0"
+    "node": "^6.9.0"
   },
   "scripts": {
     "build": "./node_modules/.bin/tsc",
