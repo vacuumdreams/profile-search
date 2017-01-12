@@ -30,14 +30,14 @@ mocha_1.describe('Services - Storage - Adapters - JSON', function () {
             chai_1.expect(adapter.store.get).to.be.a.function;
         });
         mocha_1.it('assigns the passed in store\'s readFile method to the adapter\'s get', function () {
-            return adapter.store.get('abc').then((res) => {
+            return adapter.store.get('abc').then(res => {
                 chai_1.expect(res).to.deep.equal({ abc: 123 });
                 chai_1.expect(store.readFile.callCount).to.equal(1);
                 chai_1.expect(store.readFile.firstCall.args[0]).to.equal('test-path-1');
             });
         });
         mocha_1.it('serves the rest of the requests from cache, without calling the store', function () {
-            return adapter.store.get('abc').then((res) => {
+            return adapter.store.get('abc').then(res => {
                 chai_1.expect(res).to.deep.equal({ abc: 123 });
                 chai_1.expect(store.readFile.callCount).to.equal(0);
             });

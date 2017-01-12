@@ -41,7 +41,7 @@ describe('Services - Storage - Adapters - JSON', function () {
     })
 
     it('assigns the passed in store\'s readFile method to the adapter\'s get', function () {
-      return adapter.store.get('abc').then((res) => {
+      return adapter.store.get('abc').then(res => {
         expect(res).to.deep.equal({abc: 123})
         expect(store.readFile.callCount).to.equal(1)
         expect(store.readFile.firstCall.args[0]).to.equal('test-path-1')      
@@ -49,7 +49,7 @@ describe('Services - Storage - Adapters - JSON', function () {
     })
 
     it('serves the rest of the requests from cache, without calling the store', function () {
-      return adapter.store.get('abc').then((res) => {
+      return adapter.store.get('abc').then(res => {
         expect(res).to.deep.equal({abc: 123})
         expect(store.readFile.callCount).to.equal(0)
       })

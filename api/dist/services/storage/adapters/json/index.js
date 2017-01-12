@@ -6,7 +6,8 @@ const bluebird_1 = require("bluebird");
 const util_1 = require("../../../../lib/util");
 const errors_1 = require("../../errors");
 const cache_1 = require("./cache");
-const dataCache = new cache_1.DataCache(null);
+const dataCache = new cache_1.DataCache();
+console.log(dataCache);
 const createSpec = ramda_1.merge({
     name: 'json',
     type: 'storage',
@@ -15,6 +16,7 @@ const process = curry((storeMethod, key) => {
     if (!key)
         throw new errors_1.NotFoundError();
     const cache = dataCache.get(key);
+    console.log(!!cache);
     if (cache)
         return bluebird_1.resolve(cache);
     return storeMethod(key)
