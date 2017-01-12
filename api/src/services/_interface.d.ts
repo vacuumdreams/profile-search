@@ -1,7 +1,7 @@
 import {StorageSpec} from './storage/adapters/_interface.d'
 
 export interface Service {
-  name: string,
+  name: any,
   type: 'storage' // | 'other'
 }
 

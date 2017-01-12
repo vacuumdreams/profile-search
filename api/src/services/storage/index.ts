@@ -1,4 +1,3 @@
-const converge = require('ramda').converge
 import * as fs from 'fs'
 //import * as redis from 'redis'
 import {promisify} from 'bluebird'
@@ -6,7 +5,7 @@ import {compose, path} from 'ramda'
 
 import {Config} from '../../config'
 import {adapter} from './adapters'
-import {Storage, StorageSetup, StorageSpec} from './adapters'
+import {Storage, StorageSetup, StorageSpec, StorageOptions} from './adapters'
 
 export {
   Storage,
@@ -25,7 +24,7 @@ const fsAsync = {
 //   path(['storage', 'redis'])
 // )
 
-export const storage: StorageSetup = compose(
+export const storage: (config: Config) => StorageSpec = config => compose(
   adapter(fsAsync),
   path(['storage', 'json'])
-)
+)(config)

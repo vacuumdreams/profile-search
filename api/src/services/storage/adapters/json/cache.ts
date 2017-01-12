@@ -1,6 +1,5 @@
 export class DataCache {
   private _store
-  private _timeout
   constructor(private _timeout = Infinity) {
     this._store = {}
   }
