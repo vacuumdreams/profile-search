@@ -2,11 +2,11 @@ image: node:6.9.1
 
 build_api:
   stage: build
+  script:
+    - cd api && npm i && npm run build
   cache: 
     paths:
       - ./api/node_modules
-  script:
-    - cd api && npm i && npm run build
 
 test_unit_api:
   stage: test
