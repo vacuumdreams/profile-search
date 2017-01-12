@@ -1,9 +1,8 @@
 export class DataCache {
   private _store
   private _timeout
-  constructor(timeout) {
+  constructor(private _timeout = Infinity) {
     this._store = {}
-    this._timeout = timeout || Infinity
   }
   public get(key: string): Object {
     const item = this._store[key]

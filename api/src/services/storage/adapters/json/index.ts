@@ -26,7 +26,6 @@ const createSpec: (store) => StorageSpecJson = merge({
 const process = curry((storeMethod, key: string) => {
   if (!key) throw new NotFoundError()
   const cache = dataCache.get(key)
-  console.log('cache', cache)
   if (cache) return resolve(cache)
   return storeMethod(key)
     .then(data => tryThrow(() => JSON.parse(data.toString()), BadDataError))

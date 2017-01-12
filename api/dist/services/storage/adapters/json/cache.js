@@ -1,8 +1,8 @@
 "use strict";
 class DataCache {
-    constructor(timeout) {
+    constructor(_timeout = Infinity) {
+        this._timeout = _timeout;
         this._store = {};
-        this._timeout = timeout || Infinity;
     }
     get(key) {
         const item = this._store[key];

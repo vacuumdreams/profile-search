@@ -15,7 +15,6 @@ const process = curry((storeMethod, key) => {
     if (!key)
         throw new errors_1.NotFoundError();
     const cache = dataCache.get(key);
-    console.log('cache', cache);
     if (cache)
         return bluebird_1.resolve(cache);
     return storeMethod(key)
