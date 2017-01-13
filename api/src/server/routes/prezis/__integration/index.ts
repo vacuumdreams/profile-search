@@ -1,6 +1,6 @@
 'use strict'
 import {expect} from 'chai'
-import {afterEach, describe, it} from 'mocha'
+import {after, before, describe, it} from 'mocha'
 const sinon = require('sinon')
 const fs = require('fs')
 const path = require('path')

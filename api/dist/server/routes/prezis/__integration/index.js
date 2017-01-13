@@ -43,10 +43,10 @@ server({
 });
 mocha_1.describe('API - Prezis endpoint', function () {
     mocha_1.describe('GET method', function () {
-        before(function () {
+        mocha_1.before(function () {
             preziData = fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8');
         });
-        after(function () {
+        mocha_1.after(function () {
             fs.unlinkSync(dataPath);
         });
         mocha_1.describe('without queries', function () {
