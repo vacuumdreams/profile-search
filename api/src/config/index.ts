@@ -6,7 +6,7 @@ export {Config} from './_interface'
 const dataPath: string = path.resolve('./data/prezis.json')
 
 const host = process.env.NODE_BPBP_API_URL || 'http://localhost'
-const port = process.env.NODE_BPBP_API_URL ? '0' : '8000'
+const port = process.env.PORT || '8000'
 
 export const config: Config = {
   server: {
