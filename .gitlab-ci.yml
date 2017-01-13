@@ -31,6 +31,6 @@ deploy_production:
     - apt-get update -yq
     - apt-get install -y ruby
     - gem install dpl
-    - dpl --provider=heroku --strategy=git --username=$HEROKU_USER --password=$HEROKU_PASS  --app=$HEROKU_APP --api-key=$HEROKU_PRODUCTION_API_KEY
+    - dpl --provider=heroku --strategy=git --username=$HEROKU_USER --password=$HEROKU_PASS --app=$HEROKU_APP --api-key=$HEROKU_PRODUCTION_API_KEY
   only: 
     - master
