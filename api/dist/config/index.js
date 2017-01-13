@@ -1,6 +1,6 @@
 "use strict";
 const path = require("path");
-const dataPath = path.resolve('./data/prezis.json');
+const dataPath = path.resolve('../data/prezis.json');
 const host = 'http://localhost';
 const port = process.env.PORT || '8000';
 exports.config = {

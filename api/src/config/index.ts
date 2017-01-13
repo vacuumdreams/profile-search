@@ -3,7 +3,7 @@ import * as path from 'path'
 import {Config} from './_interface'
 export {Config} from './_interface'
 
-const dataPath: string = path.resolve('./data/prezis.json')
+const dataPath: string = path.resolve('../data/prezis.json')
 
 const host = 'http://localhost'
 const port = process.env.PORT || '8000'
