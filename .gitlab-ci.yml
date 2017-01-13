@@ -27,11 +27,10 @@ deploy_production:
   stage: deploy
   variables:
     NODE_ENV: "production"
-    NODE_BPBP_API_URL: "https://pacific-harbor-98514.herokuapp.com/"
   script:
     - apt-get update -yq
     - apt-get install -y ruby
     - gem install dpl
-    - dpl --provider=heroku --app=bpbp-prod --api-key=`heroku auth:$HEROKU_PRODUCTION_API_KEY`
+    - dpl --provider=heroku --strategy=git --username=$HEROKU_USER --password=$HEROKU_PASS  --app=$HEROKU_APP
   only: 
     - master
