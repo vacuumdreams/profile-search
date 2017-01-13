@@ -4,7 +4,7 @@ build_api:
   stage: build
   script:
     - cd api && npm i && npm run build
-  cache: 
+  artifacts: 
     paths:
       - ./api/node_modules
 
@@ -13,14 +13,14 @@ test_unit_api:
   variables:
     NODE_ENV: "test"
   script:
-    - cd api && npm i && npm run test-unit
+    - cd api && npm run test-unit
 
 test_integration_api:
   stage: test
   variables:
     NODE_ENV: "test"
   script:
-    - cd api && npm i && npm run test-integration
+    - cd api && npm run test-integration
 
 deploy_production:
   stage: deploy
