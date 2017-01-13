@@ -1,11 +1,11 @@
-const wrap = (data) => (data || {
-  method: "GET",
+const wrap = data => (data || {
+  method: 'GET',
   headers: {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify(data),
 })
 
-export default (url, data) => 
+module.exports = (url, data) => 
   fetch(url, wrap(data))

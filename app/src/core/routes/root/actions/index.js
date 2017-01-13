@@ -1,8 +1,8 @@
-import {
+const {
   GET_PREZIS_REQUEST,
   GET_PREZIS_FAILURE,
   GET_PREZIS_SUCCESS,
-} from "../../../constants"
+} = require( '../../../constants')
 
 // TODO: populate with data
 

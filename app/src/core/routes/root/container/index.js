@@ -1,8 +1,11 @@
-import React from "react"
+const React = require( 'react')
 
-import styles from "./_container.scss"
+require( './_container.scss')
 
-export default RootContainer (props) => (
+const RootContainer (props) => (
   // assemble the components for this route here, and pass them down the props they need
   <div {...props} />
 )
+
+
+module.exports = RootContainer

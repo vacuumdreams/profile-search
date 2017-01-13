@@ -1,9 +1,11 @@
-import React from "react"
+const React = require( 'react')
 
-import styles from "./_container.scss"
+require('./_container.scss')
 
-export default Prezi (props) => (
+const Prezi (props) => (
 
   // component to populate the api /prezis response data with
 
 )
+
+module.exports = Prezi

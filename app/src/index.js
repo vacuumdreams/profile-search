@@ -1,5 +1,5 @@
-import config from "./config"
-import app from "./core"
-import "./scss/index.scss"
+const config = require( './config')
+const app = require( './core')
+require('./scss/index.scss')
 
 app()

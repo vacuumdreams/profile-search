@@ -1,18 +1,18 @@
-import { pick } from "ramda"
-import React from "react"
-import { applyMiddleware } from "redux"
-import { render } from "react-dom"
-import { Provider } from "react-redux"
-import thunk from "redux-thunk"
+const { pick } = require( 'ramda')
+const React = require( 'react')
+const { applyMiddleware } = require( 'redux')
+const { render } = require( 'react-dom')
+const { Provider } = require( 'react-redux')
+const thunk = require( 'redux-thunk')
 
-import routes from "./routes"
+const routes = require( './routes')
 
 const route = pick([location.pathname], routes)
 const ConnectedApp = route.connect(route.Container)
 
-export default () => render(
+module.exports = () => render(
   <Provider store={route.getStore(applyMiddleware(thunk))}>
     <ConnectedApp />
   </Provider>, 
-  document.getElementById("app")
+  document.getElementById('app')
 )

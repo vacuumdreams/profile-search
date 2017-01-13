@@ -1,7 +1,7 @@
-import Prezi from './prezi'
-import Search from './search'
+const Prezi = require( './prezi')
+const Search = require( './search')
 
-export {
+module.exports = {
   Prezi,
   Search,
 }

@@ -6,6 +6,9 @@
   "engines": {
     "node": "^6.9.0"
   },
+  "scripts": {
+    "dev": "./node_modules/.bin/babel-watch ./resources/index"
+  },
   "author": "Botond Fekete",
   "license": "MIT",
   "dependencies": {
@@ -30,6 +33,7 @@
     "chai": "^3.5.0",
     "css-loader": "^0.26.1",
     "eslint": "^3.12.2",
+    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.26.0",
     "mocha": "^3.2.0",
@@ -38,7 +42,7 @@
     "sass-loader": "^4.1.1",
     "sinon": "^1.17.7",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.1.0-beta.20",
+    "webpack-dev-server": "^2.1.0-beta.0"
   }
 }

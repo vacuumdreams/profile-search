@@ -1,1 +1,2 @@
-export {browserStorageAdapter as adapter} from './browserStorage'
+const adapter = require( './browserStorage')
+module.exports = adapter

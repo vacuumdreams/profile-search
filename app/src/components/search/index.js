@@ -1,9 +1,11 @@
-import React from "react"
+const React = require( 'react')
 
-import styles from "./_search.scss"
+require('./_search.scss')
 
-export default Search (props) => (
+const Search (props) => (
 
   // search field component
 
 )
+
+module.exports = Search

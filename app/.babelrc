@@ -1,4 +1,6 @@
 {
   "ignore": ["node_modules/**"],
-  "presets": [ "es2015-native-modules", "stage-0", "react" ]
+  "presets": [
+    ["es2015", { "modules": false }]
+  ]
 }

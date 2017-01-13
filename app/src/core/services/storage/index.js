@@ -1,7 +1,7 @@
-import adapter from "./adapters"
+const adapter = require( './adapters')
 
 const serviceStorage = adapter(localStorage)
 
-export {
+module.exports = {
   serviceStorage,
 }

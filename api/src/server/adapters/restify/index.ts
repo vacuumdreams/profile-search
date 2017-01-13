@@ -16,7 +16,7 @@ const url = require('url')
 
 const getPort: (config: Config) => any = compose(
   parseInt,
-  propOr('8080', 'port'),
+  propOr('8000', 'port'),
   url.parse,
   path(['server', 'url'])
 )

@@ -1,10 +1,10 @@
-import { createStore } from "redux"
-import { connect } from "react-redux"
+const { createStore } = require( 'redux')
+const { connect } = require( 'react-redux')
 
-import defaultState from "./state"
-import reducer from "./reducer"
-import {?} from "./actions"
-import RootContainer from "./container"
+const defaultState = require( './state')
+const reducer = require( './reducer')
+//const {?} = require( './actions')
+const RootContainer = require( './container')
 
 const selector = state => ({
   // state selector for transforming values and passing them into the container
@@ -17,7 +17,7 @@ const dispatcher = dispatch => ({
   },
 })
 
-export default {
+module.exports = {
   Container: RootContainer,
   connect: connect(selector, dispatcher),
   getStore: middlewares => createStore(reducer, defaultState, middlewares),

@@ -1,5 +1,5 @@
-import { root } from "./root"
+const { root } = require( './root')
 
-export default {
+module.exports = {
   '/': root,
 }

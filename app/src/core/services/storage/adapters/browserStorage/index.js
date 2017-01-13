@@ -1,6 +1,6 @@
-import {always, compose, isNil, keys, mapObjIndexed, partial, tap, when} from "ramda"
+const {always, compose, isNil, keys, mapObjIndexed, partial, tap, when} = require( 'ramda')
 
-export default (storage) => ({
+module.exports = (storage) => ({
   get: storage.getItem.bind(storage),
   update: mapObjIndexed(storage.setItem.bind(storage)),
   getCreate: (key, defaultValue) => 
