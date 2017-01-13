@@ -15,6 +15,7 @@ export {
 const url = require('url')
 
 const getPort: (config: Config) => any = compose(
+  port => { console.log('BINDING PORT: ', port); return port; },
   parseInt,
   propOr('8000', 'port'),
   url.parse,
