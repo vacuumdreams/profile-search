@@ -2,7 +2,7 @@
 const path = require("path");
 const dataPath = path.resolve('./data/prezis.json');
 const host = process.env.NODE_BPBP_API_URL || 'http://localhost';
-const port = '8000';
+const port = process.env.NODE_BPBP_API_URL ? '0' : '8000';
 exports.config = {
     server: {
         name: 'bpbp-api',
