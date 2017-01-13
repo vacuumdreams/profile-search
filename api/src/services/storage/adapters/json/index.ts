@@ -30,7 +30,7 @@ const process = curry((storeMethod, key: string) => {
   return storeMethod(key)
     .then(data => tryThrow(() => JSON.parse(data.toString()), BadDataError))
     .then(data => dataCache.set(key, data))
-    .catch(alwaysThrow(NotFoundError))
+    .catch(e => { console.log(e); return alwaysThrow(NotFoundError)(); })
 })
 
 export const jsonAdapter: StorageSetupJson = store => compose(
