@@ -1,7 +1,7 @@
 "use strict";
 const ramda_1 = require("ramda");
 const url = require('url');
-const getPort = ramda_1.compose(port => { console.log('BINDING PORT: ', port); return port; }, parseInt, ramda_1.propOr('8000', 'port'), url.parse, ramda_1.path(['server', 'url']));
+const getPort = ramda_1.compose(parseInt, ramda_1.propOr('8000', 'port'), url.parse, ramda_1.path(['server', 'url']));
 const select = name => ramda_1.converge(ramda_1.bind, [
     ramda_1.prop(name),
     ramda_1.identity
