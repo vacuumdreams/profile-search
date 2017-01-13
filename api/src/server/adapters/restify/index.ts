@@ -35,7 +35,6 @@ const expose: (config: Config) => (server: Restify) => AdapterObjectRestify = co
     select('listen')(server)(getPort(config), always(console.log(msg))),
 })
 
-
 export const adapterRestify: AdapterRestify = server => config => compose(
   expose(config),
   server,

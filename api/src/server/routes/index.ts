@@ -17,7 +17,6 @@ import {services} from '../../services'
 import {addServices} from './add'
 
 const specs: RouteHandlers[] = [
-  () => ({path: '/', handlers: { get: (res, req) => res.send(200, "HI THERE!")}}),
   create('prezis', prezis),
 ]
 
