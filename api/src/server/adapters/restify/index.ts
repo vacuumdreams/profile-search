@@ -15,7 +15,8 @@ export {
 const url = require('url')
 
 const getPort: (config: Config) => any = compose(
-  propOr(8080, 'port'),
+  parseInt,
+  propOr('8080', 'port'),
   url.parse,
   path(['server', 'url'])
 )
