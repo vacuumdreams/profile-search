@@ -28,7 +28,7 @@ const data = [{
         createdAt: '2007-01-05'
     }];
 const server = require('../../../').api;
-const preziData = fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8');
+let preziData;
 server({
     server: {
         name: 'test-integration-prezis',
@@ -43,6 +43,12 @@ server({
 });
 mocha_1.describe('API - Prezis endpoint', function () {
     mocha_1.describe('GET method', function () {
+        before(function () {
+            preziData = fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8');
+        });
+        after(function () {
+            fs.unlinkSync(dataPath);
+        });
         mocha_1.describe('without queries', function () {
             mocha_1.it('should return the contents of the given file', function (done) {
                 request

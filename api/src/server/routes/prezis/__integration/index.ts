@@ -30,7 +30,7 @@ const data = [{
 }]
 
 const server = require('../../../').api
-const preziData = fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8')
+let preziData
 
 server({
   server: {
@@ -47,6 +47,14 @@ server({
 
 describe('API - Prezis endpoint', function () {
   describe('GET method', function () {
+    before(function () {
+      preziData= fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8')
+    })
+
+    after(function () {
+      fs.unlinkSync(dataPath)
+    })
+
     describe('without queries', function () {
       it('should return the contents of the given file', function (done) {
         request
