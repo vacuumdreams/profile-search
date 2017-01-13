@@ -18,8 +18,6 @@ import {DataCache} from './cache'
 
 const dataCache = new DataCache()
 
-console.log(dataCache)
-
 const createSpec: (store) => StorageSpecJson = merge({
   name: 'json',
   type: 'storage',
@@ -28,12 +26,11 @@ const createSpec: (store) => StorageSpecJson = merge({
 const process = curry((storeMethod, key: string) => {
   if (!key) throw new NotFoundError()
   const cache = dataCache.get(key)
-  console.log(!!cache)
   if (cache) return resolve(cache)
   return storeMethod(key)
     .then(data => tryThrow(() => JSON.parse(data.toString()), BadDataError))
     .then(data => dataCache.set(key, data))
-    .catch(e => { console.log(e); return alwaysThrow(NotFoundError)(); })
+    .catch(alwaysThrow(NotFoundError))
 })
 
 export const jsonAdapter: StorageSetupJson = store => compose(

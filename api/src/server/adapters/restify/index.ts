@@ -1,4 +1,4 @@
-import {always, applySpec, bind, compose, converge, identity, last, path, prop, split} from "ramda"
+import {always, applySpec, bind, compose, converge, identity, last, path, prop, propOr, split} from "ramda"
 import {Config} from '../../../config'
 import {AdapterRestify, AdapterObjectRestify, Restify} from './_interface.d'
 export {
@@ -12,12 +12,11 @@ export {
   ApiOptionsRestify,
 } from './_interface.d'
 
-const extractPort: (url: string[]) => string = last
+const url = require('url')
 
-const getPort: (config: Config) => number = compose(
-  parseInt,
-  extractPort,
-  split(':'),
+const getPort: (config: Config) => any = compose(
+  propOr(8080, 'port'),
+  url.parse,
   path(['server', 'url'])
 )
 
