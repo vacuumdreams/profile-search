@@ -30,6 +30,7 @@ Integration tests - using a fake config but the real api, main criteria is to co
 The app is set up to deploy to [Heroku](https://pacific-harbor-98514.herokuapp.com/) after succeeding test in the gitlab CI pipeline.
 
 ### FUTURE TODOS:
+  * Change CORS to accept requests only from the client, when implemented
   * Review and generalize typescript naming conventions
   * Add logging
   * Streamify async data transform flows?
