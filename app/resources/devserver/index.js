@@ -29,11 +29,11 @@ const alter = applySpec({
 })
 
 const createWpDevServer = compose(
-  tap(server => server.use(`/${PATHS.OUTPUT}`, staticMiddleware)),
-  config => new WebpackDevServer(
-    compose(webpack, tap(console.log), alter)(config), 
-    prop('devServer', config)
-  )
+  //tap(server => server.use(`/${PATHS.OUTPUT}`, staticMiddleware)),
+  //config => new WebpackDevServer(
+    compose(webpack, alter), 
+    prop('devServer')
+  //)
 )
 
 module.exports = compose(

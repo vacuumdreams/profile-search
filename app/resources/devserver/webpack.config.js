@@ -18,9 +18,7 @@ const PATHS = {
 
 const getPath = (notation = '') => path.join(__dirname, notation)
 
-module.exports = config => {
-  console.log("!!!!!!!!!!!!", config)
-  return ({
+module.exports = config => ({
   devtool: (process.env.NODE_ENV === ENV.DEVELOPMENT) ? 'source-map': void 0,
   progress: true,
   colors: true,
@@ -85,8 +83,8 @@ module.exports = config => {
 
   htmlPlugin: {
     title: config.app.name || 'Untitled',
-    inject: false,
-    faviconPath: `/${PATHS.OUTPUT}/favicon.png`,
+    inject: true,
+    //faviconPath: `/${PATHS.OUTPUT}/favicon.png`,
     filename: 'index.html',
     template: getPath(`${PATHS.DEVSERVER}/static/index.mst`),
   },
@@ -95,7 +93,7 @@ module.exports = config => {
     hot: process.env.NODE_ENV !== ENV.PRODUCTION,
     contentBase: getPath(`${PATHS.ROOT}/${PATHS.OUTPUT}`),
     filename: 'bundle.js',
-    // publicPath: `/${PATHS.OUTPUT}/`,
+    publicPath: `/`,
     stats: {
       progress: true,
       colors: true,
@@ -105,6 +103,5 @@ module.exports = config => {
 
   postcss: () => [autoprefixer()],
 })
-}
 
 module.exports.PATHS = PATHS
