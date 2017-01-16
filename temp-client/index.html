@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" href="dist/styles.css">
+  <script async src="dist/bundle.js"></script>
+  <title>Prezis</title>
+</head>
+<body>
+  <div class="bpbp" id="bpbp-app">
+    
+    <h1 class="bpbp-title">Prezis</h1>
+
+    <form class="bpbp-search" id="bpbp-prezis-search">
+      <input class="bpbp-search-input" type="text" name="search" placeholder="Search prezi title">
+    </form>
+
+    <form class="bpbp-sort" id="bpbp-prezis-sort">
+      <input type="hidden" name="sort" value="createdAt">
+      <button class="bpbp-sort" id="bpbp-prezis-sort" type="submit">Sort</button>
+    </form>
+
+    <ul class="bpbp-list" id="bpbp-prezis-list">
+    </ul>
+
+  </div>
+</body>
+</html>

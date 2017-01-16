@@ -1,0 +1,11 @@
+@import "normalize";
+
+* {
+  box-sizing: border-box;
+}
+
+.bpbp {
+  &-list {
+    display: flex;
+  }
+}
