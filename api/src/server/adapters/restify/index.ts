@@ -1,4 +1,5 @@
-import {always, applySpec, bind, compose, converge, identity, last, path, prop, propOr, split} from "ramda"
+import {always, applySpec, bind, compose, converge, identity, last, 
+  path, prop, propOr, split, tap} from "ramda"
 import {Config} from '../../../config'
 import {AdapterRestify, AdapterObjectRestify, Restify} from './_interface.d'
 export {
@@ -38,6 +39,6 @@ const expose: (config: Config) => (server: Restify) => AdapterObjectRestify = co
 export const adapterRestify: AdapterRestify = server => config => compose(
   expose(config),
   server,
-  prop('server')
+  prop('server'),
 )(config)
 

@@ -78,6 +78,19 @@ mocha_1.describe('Prezis route', function () {
                     ]);
                 });
             });
+            mocha_1.it('which is case insensitive', function () {
+                return get(services)({ query: { search: 'UUoo' } }, res).then(() => {
+                    chai_1.expect(storeGetStub.callCount).to.equal(1);
+                    chai_1.expect(storeGetStub.firstCall.args.length).to.equal(1);
+                    chai_1.expect(storeGetStub.firstCall.args[0]).to.equal('prezis');
+                    chai_1.expect(res.send.callCount).to.equal(1);
+                    chai_1.expect(res.send.firstCall.args.length).to.equal(2);
+                    chai_1.expect(res.send.firstCall.args[0]).to.equal(200);
+                    chai_1.expect(res.send.firstCall.args[1]).to.deep.equal([
+                        { id: 3, title: 'uuoo', createdAt: new Date('2009-01-10').toISOString() },
+                    ]);
+                });
+            });
             mocha_1.it('allows partial matches', function () {
                 return get(services)({ query: { search: 'a' } }, res).then(() => {
                     chai_1.expect(storeGetStub.callCount).to.equal(1);

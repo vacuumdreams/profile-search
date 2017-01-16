@@ -6,7 +6,7 @@ const path = require('ramda').path
 const reduce = require('ramda').reduce
 
 import {always, compose, eqBy, filter, ifElse, intersection, isEmpty, isNil, keys, memoize, not,
-  pick, prop, sort, subtract, test, values, when, without} from 'ramda'
+  pick, prop, sort, subtract, test, toLower, values, when, without} from 'ramda'
 import {Promise} from 'bluebird'
 
 import {Response, Request} from '../../../server/adapters'
@@ -22,7 +22,7 @@ const sortMap = {
   createdAt: converge(subtract, [getTimeForArg(0, 'createdAt'), getTimeForArg(1, 'createdAt')])
 }
 
-const matchTitle = term => compose(test(new RegExp(term)), prop('title'))
+const matchTitle = term => compose(test(new RegExp(toLower(term))), toLower, prop('title'))
 
 const allowedQueryMap: (data: PreziData[]) => Object = data => ({
   search: memoize(compose(

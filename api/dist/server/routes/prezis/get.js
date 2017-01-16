@@ -12,7 +12,7 @@ const getTimeForArg = (index, term) => ramda_1.compose(util_1.toTimestamp, ramda
 const sortMap = {
     createdAt: converge(ramda_1.subtract, [getTimeForArg(0, 'createdAt'), getTimeForArg(1, 'createdAt')])
 };
-const matchTitle = term => ramda_1.compose(ramda_1.test(new RegExp(term)), ramda_1.prop('title'));
+const matchTitle = term => ramda_1.compose(ramda_1.test(new RegExp(ramda_1.toLower(term))), ramda_1.toLower, ramda_1.prop('title'));
 const allowedQueryMap = data => ({
     search: ramda_1.memoize(ramda_1.compose(flip(ramda_1.filter)(data), matchTitle)),
     sort: ramda_1.memoize(ramda_1.compose(flip(ramda_1.sort)(data), ramda_1.when(ramda_1.isNil, util_1.alwaysThrow(errors_1.InvalidSortParamError)), flip(ramda_1.prop)(sortMap))),
