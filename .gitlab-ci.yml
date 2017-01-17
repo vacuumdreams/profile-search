@@ -6,7 +6,7 @@ before_script:
 build_api:
   stage: build
   script:
-    - npm run build-api
+    - npm i && npm run build-api
   artifacts: 
     paths:
       - ./node_modules
@@ -15,7 +15,7 @@ build_api:
 build_app:
   stage: build
   script:
-    - npm run build-app
+    - npm i && npm run build-app
   artifacts: 
     paths:
       - ./temp-client/dist
