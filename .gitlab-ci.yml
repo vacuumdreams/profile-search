@@ -1,8 +1,5 @@
 image: node:6.9.1
 
-before_script:
-  - npm i
-
 build_api:
   stage: build
   script:
