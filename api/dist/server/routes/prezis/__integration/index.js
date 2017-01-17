@@ -52,7 +52,7 @@ mocha_1.describe('API - Prezis endpoint', function () {
         mocha_1.describe('without queries', function () {
             mocha_1.it('should return the contents of the given file', function (done) {
                 request
-                    .get('http://localhost:8999/prezis')
+                    .get('http://localhost:8900/prezis')
                     .withCredentials()
                     .end(function (err, res) {
                     chai_1.expect(res.body).to.deep.equal(data);
@@ -63,7 +63,7 @@ mocha_1.describe('API - Prezis endpoint', function () {
         mocha_1.describe('with search query', function () {
             mocha_1.it('should return the contents of the given file', function (done) {
                 request
-                    .get('http://localhost:8999/prezis')
+                    .get('http://localhost:8900/prezis')
                     .query({ search: 'Title 4' })
                     .withCredentials()
                     .end(function (err, res) {
@@ -75,7 +75,7 @@ mocha_1.describe('API - Prezis endpoint', function () {
         mocha_1.describe('with sort query', function () {
             mocha_1.it('should return the contents of the given file', function (done) {
                 request
-                    .get('http://localhost:8999/prezis')
+                    .get('http://localhost:8900/prezis')
                     .query({ sort: 'createdAt' })
                     .withCredentials()
                     .end(function (err, res) {

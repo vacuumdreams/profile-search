@@ -48,7 +48,7 @@ server({
 describe('API - Prezis endpoint', function () {
   describe('GET method', function () {
     before(function () {
-      preziData= fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8')
+      preziData = fs.writeFileSync(dataPath, JSON.stringify(data), 'utf8')
     })
 
     after(function () {
@@ -58,7 +58,7 @@ describe('API - Prezis endpoint', function () {
     describe('without queries', function () {
       it('should return the contents of the given file', function (done) {
         request
-          .get('http://localhost:8999/prezis')
+          .get('http://localhost:8900/prezis')
           .withCredentials()
           .end(function (err, res) {
             expect(res.body).to.deep.equal(data)
@@ -70,7 +70,7 @@ describe('API - Prezis endpoint', function () {
     describe('with search query', function () {
       it('should return the contents of the given file', function (done) {
         request
-          .get('http://localhost:8999/prezis')
+          .get('http://localhost:8900/prezis')
           .query({ search: 'Title 4' })
           .withCredentials()
           .end(function (err, res) {
@@ -83,7 +83,7 @@ describe('API - Prezis endpoint', function () {
     describe('with sort query', function () {
       it('should return the contents of the given file', function (done) {
         request
-          .get('http://localhost:8999/prezis')
+          .get('http://localhost:8900/prezis')
           .query({ sort: 'createdAt' })
           .withCredentials()
           .end(function (err, res) {
