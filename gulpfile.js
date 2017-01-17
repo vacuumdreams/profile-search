@@ -38,7 +38,7 @@ gulp.task('styles-dev', () => gulp.src(path.styles.entry)
   .pipe(sourcemaps.init())
   .pipe(sass({
     includePaths: [
-      './node_modules/normalize-scss/sass',
+      __dirname + '/node_modules/normalize-scss/sass',
     ],
   }))
   .pipe(autoprefixer())

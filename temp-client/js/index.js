@@ -12,14 +12,29 @@ const fetchOpts = {
 
 let $container
 
-const createPrezi = data => `<li>${data.title}</li>`
+const createPrezi = data => 
+  `<li class='bpbp-item'>
+    <div class="bpbp-item-wrapper">
+      <img class='bpbp-item-image' src='${data.thumbnail}'>
+      <div class='bpbp-item-created'>
+        <svg class="bpbp-icon">
+          <use xlink:href="#time" />
+        </svg>
+        <span>${data.createdAt}</span>
+      </div>
+      <a class='bpbp-item-creator' href='${data.creator.profileUrl}' target='blank'>
+        <svg class="bpbp-icon">
+          <use xlink:href="#pen" />
+        </svg>
+        <span>${data.creator.name}</span>
+      </a>
+    </div>
+    <p class='bpbp-item-title'>${data.title}</p>
+  </li>`
 
 const addPrezi = (html, prezi) => (html + createPrezi(prezi))
 
-const writeDom = prezis => {
-  $container.innerHTML = prezis
-  $container.classList.remove('loading')
-}
+const writeDom = prezis => ($container.innerHTML = prezis)
 
 const fetchPrezis = url => {
   $container.classList.add('loading')
@@ -27,6 +42,7 @@ const fetchPrezis = url => {
     .then(res => res.json())
     .then(reduce(addPrezi, ''))
     .then(writeDom)
+    .then(() => $container.classList.remove('loading'))
 }
 
 const formHandler = event => {
