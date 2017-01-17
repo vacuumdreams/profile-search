@@ -6,7 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const request = require('superagent')
 
-const dataPath = path.resolve('./data/test-integration-prezis.json')
+const dataPath = path.join(__dirname, '/test-integration-prezis.json')
 const data = [{
   id: 1,
   title: 'Title 1',
@@ -35,7 +35,7 @@ let preziData
 server({
   server: {
     name: 'test-integration-prezis',
-    url: 'http://localhost:8999',
+    url: 'http://localhost:8900',
   },
   storage: {
     json: [{
