@@ -7,7 +7,7 @@
     "node": "^6.9.0"
   },
   "scripts": {
-    "build-api": "cd api && ./node_modules/.bin/tsc",
+    "build-api": "./node_modules/.bin/tsc",
     "build-app": "./node_modules/.bin/gulp",
     "lint-api": "cd api && ./node_modules/.bin/eslint --config .eslintrc src/**/*.js --fix",
     "test-unit-api": "cd api && ./node_modules/.bin/mocha dist/**/__unit/*.js",

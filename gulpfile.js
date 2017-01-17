@@ -28,6 +28,11 @@ const path = {
 // task STYLES
 
 gulp.task('styles', () => gulp.src(path.styles.entry)
+  .pipe(sass({
+    includePaths: [
+      __dirname + '/node_modules/normalize-scss/sass',
+    ],
+  }))  
   .pipe(autoprefixer())
   .pipe(nano())
   .pipe(rename('styles.min.css'))
