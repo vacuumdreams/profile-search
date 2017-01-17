@@ -12,6 +12,8 @@ const webpack = require('webpack')
 const gwp = require('webpack-stream')
 const webpackConfig = require('./temp-client/webpack.config.js')
 
+const isDev = process.env.NODE_ENV === 'development'
+
 const path = {
   'styles': {
     'dir': './temp-client/styles/scss',
@@ -57,7 +59,7 @@ gulp.task('styles-watch', () => gulp.watch(`${path.styles.dir}/**`, ['styles-dev
 // task JS
 
 gulp.task('js', () => gulp.src(path.js.entry)
-  .pipe(named(() => 'bundle'))
+  .pipe(named(() => isDev ? 'bundle' : 'bundle.min'))
   // .pipe(webpack(webpackConfig))
   .pipe(gwp(webpackConfig, webpack))
   .pipe(gulp.dest(path.js.dest))
@@ -68,4 +70,4 @@ gulp.task('js', () => gulp.src(path.js.entry)
 const tasks = ['styles', 'js']
 const devTasks = ['styles', 'js', 'styles-watch']
 
-gulp.task('default', process.env.NODE_ENV === 'development' ? devTasks : tasks)
+gulp.task('default', isDev ? devTasks : tasks)
