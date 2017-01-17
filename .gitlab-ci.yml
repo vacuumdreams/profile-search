@@ -1,13 +1,24 @@
 image: node:6.9.1
 
+before_script:
+  - npm i
+
 build_api:
   stage: build
   script:
-    - cd api && npm i && npm run build
+    - npm run build-api
   artifacts: 
     paths:
-      - ./api/node_modules
+      - ./node_modules
       - ./api/dist
+
+build_app:
+  stage: build
+  script:
+    - npm run build-app
+  artifacts: 
+    paths:
+      - ./temp-client/dist
 
 test_unit_api:
   stage: test
