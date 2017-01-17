@@ -9,11 +9,11 @@
   "scripts": {
     "build-api": "./node_modules/.bin/tsc",
     "build-app": "./node_modules/.bin/gulp",
-    "lint-api": "cd api && ./node_modules/.bin/eslint --config .eslintrc src/**/*.js --fix",
-    "test-unit-api": "cd api && ./node_modules/.bin/mocha dist/**/__unit/*.js",
-    "test-integration-api": "cd api && ./node_modules/.bin/mocha dist/**/__integration/*.js",
+    "lint-api": "./node_modules/.bin/eslint --config api/.eslintrc api/src/**/*.js --fix",
+    "test-unit-api": "./node_modules/.bin/mocha api/dist/**/__unit/*.js",
+    "test-integration-api": "./node_modules/.bin/mocha api/dist/**/__integration/*.js",
     "start": "node index.js",
-    "dev-build-api": "cd api && ./node_modules/.bin/tsc --watch",
+    "dev-build-api": "./node_modules/.bin/tsc --watch",
     "dev-api": "NODE_ENV=development ./node_modules/nodemon/bin/nodemon.js index.js",
     "dev-app": "NODE_ENV=development ./node_modules/.bin/gulp"
   },
