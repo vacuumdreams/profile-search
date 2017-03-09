@@ -36,13 +36,12 @@ Integration tests - using a fake config but the real api, main criteria is to co
 
 ### CI
 
-The app is set up to deploy to [Heroku](https://pacific-harbor-98514.herokuapp.com/) after succeeding test in the gitlab CI pipeline (currently broken).
+The app is set up to deploy to [Heroku](https://pacific-harbor-98514.herokuapp.com/) after succeeding test in the gitlab CI pipeline.
 
-### FUTURE TODOS:
-  * Fix Heroku deploy and Heroku access
+### POSSIBLE FUTURE TODOS:
   * Fix issue: searched items are not being sorted
   * Change CORS to accept requests only from the client, when implemented
   * Review and generalize typescript naming conventions
   * Add logging
   * Streamify async data transform flows?
-  * Update to use http2
+  * Update to use http2?
